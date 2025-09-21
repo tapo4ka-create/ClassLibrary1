@@ -84,7 +84,25 @@ namespace Logic
 
             return result;
         }
+        // Поиск по стажу
+        public List<string> GetTeachersByExperienceInfo(int minExperience)
+        {
+            var filteredTeachers = teachers.Where(t => t.Experience >= minExperience).ToList();
 
+            if (filteredTeachers.Count == 0)
+            {
+                return new List<string> { "Преподаватели не найдены" };
+            }
 
+            return filteredTeachers
+                .Select(t => $"{t.Name} - {t.Subject} ({t.Experience} лет)")
+                .ToList();
+        }
+
+        // Проверка существования преподавателей
+        public bool HasTeachers()
+        {
+            return teachers.Count > 0;
+        }
     }
 }
