@@ -105,5 +105,40 @@ namespace ConsoleUI
                 Console.WriteLine("Ошибка ввода ID");
             }
         }
+        static void UpdateTeacher()
+        {
+            Console.Write("Введите ID для изменения: ");
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                if (!manager.TeacherExists(id))
+                {
+                    Console.WriteLine("Преподаватель с таким ID не найден");
+                    return;
+                }
+
+                Console.Write("Новое имя: ");
+                var name = Console.ReadLine();
+
+                Console.Write("Новый предмет: ");
+                var subject = Console.ReadLine();
+
+                Console.Write("Новый стаж: ");
+                if (int.TryParse(Console.ReadLine(), out int experience))
+                {
+                    if (manager.UpdateTeacher(id, name, subject, experience))
+                        Console.WriteLine("Данные преподавателя обновлены");
+                    else
+                        Console.WriteLine("Ошибка при обновлении");
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода стажа");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ошибка ввода ID");
+            }
+        }
 
     }
