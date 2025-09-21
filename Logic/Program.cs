@@ -66,6 +66,25 @@ namespace Logic
             }
             return false;
         }
+        // Группировка по предметам
+        public List<string> GetGroupedBySubjectInfo()
+        {
+            var result = new List<string>();
+            var groups = teachers.GroupBy(t => t.Subject);
+
+            foreach (var group in groups)
+            {
+                result.Add(group.Key + ":");
+                foreach (var teacher in group)
+                {
+                    result.Add($"  {teacher.Name} ({teacher.Experience} лет)");
+                }
+                result.Add(""); // пустая строка между группами
+            }
+
+            return result;
+        }
+
 
     }
 }
