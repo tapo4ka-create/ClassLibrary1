@@ -140,5 +140,37 @@ namespace ConsoleUI
                 Console.WriteLine("Ошибка ввода ID");
             }
         }
+        static void GroupBySubject()
+        {
+            if (!manager.HasTeachers())
+            {
+                Console.WriteLine("Нет преподавателей");
+                return;
+            }
+
+            var groupsInfo = manager.GetGroupedBySubjectInfo();
+            foreach (var info in groupsInfo)
+            {
+                Console.WriteLine(info);
+            }
+        }
+
+        static void FilterByExperience()
+        {
+            Console.Write("Минимальный стаж: ");
+            if (int.TryParse(Console.ReadLine(), out int minExperience))
+            {
+                var teachersInfo = manager.GetTeachersByExperienceInfo(minExperience);
+                foreach (var info in teachersInfo)
+                {
+                    Console.WriteLine(info);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ошибка ввода стажа");
+            }
+        }
 
     }
+}
