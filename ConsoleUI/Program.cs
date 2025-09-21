@@ -76,5 +76,34 @@ namespace ConsoleUI
             }
         }
 
+        static void ShowAllTeachers()
+        {
+            if (!manager.HasTeachers())
+            {
+                Console.WriteLine("Нет преподавателей");
+                return;
+            }
+
+            var teachersInfo = manager.GetAllTeachersInfo();
+            foreach (var info in teachersInfo)
+            {
+                Console.WriteLine(info);
+            }
+        }
+        static void DeleteTeacher()
+        {
+            Console.Write("Введите ID для удаления: ");
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                if (manager.RemoveTeacher(id))
+                    Console.WriteLine("Преподаватель удален");
+                else
+                    Console.WriteLine("Преподаватель с таким ID не найден");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка ввода ID");
+            }
+        }
 
     }
