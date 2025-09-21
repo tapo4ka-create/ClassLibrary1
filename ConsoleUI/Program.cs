@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Logic;
 
 namespace ConsoleUI
 {
@@ -54,6 +55,9 @@ namespace ConsoleUI
                 }
 
                 Console.WriteLine();
+                Console.WriteLine("Пожалуйста, подождите 3 секунды");
+                Thread.Sleep(2500);
+                Console.Clear();
             }
         }
         static void AddTeacher()
