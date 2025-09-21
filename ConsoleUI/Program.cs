@@ -56,5 +56,25 @@ namespace ConsoleUI
                 Console.WriteLine();
             }
         }
+        static void AddTeacher()
+        {
+            Console.Write("Введите имя: ");
+            var name = Console.ReadLine();
+
+            Console.Write("Введите предмет: ");
+            var subject = Console.ReadLine();
+
+            Console.Write("Введите стаж: ");
+            if (int.TryParse(Console.ReadLine(), out int experience))
+            {
+                manager.AddTeacher(name, subject, experience);
+                Console.WriteLine("Преподаватель добавлен");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка ввода стажа");
+            }
+        }
+
 
     }
