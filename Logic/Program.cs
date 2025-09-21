@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    internal class Program
+    public class Teacher
     {
-        static void Main(string[] args)
-        {
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Subject { get; set; }
+        public int Experience { get; set; }
     }
+    
 }

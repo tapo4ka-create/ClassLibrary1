@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36429.23 d17.14
+VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "ClassLibrary1\Model.csproj", "{598FC4F6-7267-4FD8-BE24-048798BECFF5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{4ECE4DC7-7089-4A5A-A52D-CDFE09406195}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{E16174D3-B12D-442E-95DE-58F2FA00845A}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{598FC4F6-7267-4FD8-BE24-048798BECFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{598FC4F6-7267-4FD8-BE24-048798BECFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{598FC4F6-7267-4FD8-BE24-048798BECFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{598FC4F6-7267-4FD8-BE24-048798BECFF5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4ECE4DC7-7089-4A5A-A52D-CDFE09406195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4ECE4DC7-7089-4A5A-A52D-CDFE09406195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ECE4DC7-7089-4A5A-A52D-CDFE09406195}.Release|Any CPU.ActiveCfg = Release|Any CPU
