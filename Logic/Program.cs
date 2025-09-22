@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
+    /// <summary>
+    /// Класс преподавателя и его наполнение
+    /// </summary>
     public class Teacher
     {
         public int Id { get; set; }
