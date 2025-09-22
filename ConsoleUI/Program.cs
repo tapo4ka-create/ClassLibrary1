@@ -12,6 +12,10 @@ namespace ConsoleUI
     {
         static TeacherManager manager = new TeacherManager();
 
+        /// <summary>
+        /// Главный метод приложения. Запускает цикл меню для работы с преподавателями.
+        /// </summary>
+        /// <param name="args">Аргументы командной строки</param>
         static void Main(string[] args)
         {
             while (true)
@@ -60,6 +64,10 @@ namespace ConsoleUI
                 Console.Clear();
             }
         }
+
+        /// <summary>
+        /// Добавляет нового преподавателя в систему.
+        /// </summary>
         static void AddTeacher()
         {
             Console.Write("Введите имя: ");
@@ -80,6 +88,9 @@ namespace ConsoleUI
             }
         }
 
+        /// <summary>
+        /// Отображает список всех преподавателей.
+        /// </summary>
         static void ShowAllTeachers()
         {
             if (!manager.HasTeachers())
@@ -94,6 +105,10 @@ namespace ConsoleUI
                 Console.WriteLine(info);
             }
         }
+
+        /// <summary>
+        /// Удаляет преподавателя по указанному идентификатору.
+        /// </summary>
         static void DeleteTeacher()
         {
             Console.Write("Введите ID для удаления: ");
@@ -109,6 +124,10 @@ namespace ConsoleUI
                 Console.WriteLine("Ошибка ввода ID");
             }
         }
+
+        /// <summary>
+        /// Обновляет данные существующего преподавателя.
+        /// </summary>
         static void UpdateTeacher()
         {
             Console.Write("Введите ID для изменения: ");
@@ -144,6 +163,10 @@ namespace ConsoleUI
                 Console.WriteLine("Ошибка ввода ID");
             }
         }
+
+        /// <summary>
+        /// Группирует преподавателей по предметам и отображает результат.
+        /// </summary>
         static void GroupBySubject()
         {
             if (!manager.HasTeachers())
@@ -159,6 +182,9 @@ namespace ConsoleUI
             }
         }
 
+        /// <summary>
+        /// Фильтрует преподавателей по минимальному стажу и отображает результат.
+        /// </summary>
         static void FilterByExperience()
         {
             Console.Write("Минимальный стаж: ");
@@ -175,6 +201,5 @@ namespace ConsoleUI
                 Console.WriteLine("Ошибка ввода стажа");
             }
         }
-
     }
 }
