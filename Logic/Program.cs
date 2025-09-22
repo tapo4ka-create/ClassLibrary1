@@ -13,12 +13,21 @@ namespace Logic
         public string Subject { get; set; }
         public int Experience { get; set; }
     }
+
+    /// <summary>
+    /// Менеджер для работы с преподавателями
+    /// </summary>
     public class TeacherManager
     {
         private List<Teacher> teachers = new List<Teacher>();
         private int nextId = 1;
 
-        // Создание
+        /// <summary>
+        /// Добавляет нового преподавателя
+        /// </summary>
+        /// <param name="name">Имя преподавателя</param>
+        /// <param name="subject">Предмет</param>
+        /// <param name="experience">Стаж в годах</param>
         public void AddTeacher(string name, string subject, int experience)
         {
             teachers.Add(new Teacher
@@ -30,18 +39,30 @@ namespace Logic
             });
         }
 
-        // Чтение
+        /// <summary>
+        /// Получает информацию о всех преподавателях
+        /// </summary>
+        /// <returns>Список строк с информацией о преподавателях</returns>
         public List<string> GetAllTeachersInfo()
         {
             return teachers.Select(t => $"ID: {t.Id}, {t.Name}, {t.Subject}, {t.Experience} лет").ToList();
         }
 
+        /// <summary>
+        /// Проверяет существование преподавателя по ID
+        /// </summary>
+        /// <param name="id">ID преподавателя</param>
+        /// <returns>True если преподаватель существует</returns>
         public bool TeacherExists(int id)
         {
             return teachers.Any(t => t.Id == id);
         }
 
-        // Удаление
+        /// <summary>
+        /// Удаляет преподавателя по ID
+        /// </summary>
+        /// <param name="id">ID преподавателя</param>
+        /// <returns>True если удаление успешно</returns>
         public bool RemoveTeacher(int id)
         {
             var teacher = teachers.Find(t => t.Id == id);
@@ -53,7 +74,14 @@ namespace Logic
             return false;
         }
 
-        // Изменение
+        /// <summary>
+        /// Обновляет данные преподавателя
+        /// </summary>
+        /// <param name="id">ID преподавателя</param>
+        /// <param name="name">Новое имя</param>
+        /// <param name="subject">Новый предмет</param>
+        /// <param name="experience">Новый стаж</param>
+        /// <returns>True если обновление успешно</returns>
         public bool UpdateTeacher(int id, string name, string subject, int experience)
         {
             var teacher = teachers.Find(t => t.Id == id);
@@ -66,7 +94,11 @@ namespace Logic
             }
             return false;
         }
-        // Группировка по предметам
+
+        /// <summary>
+        /// Группирует преподавателей по предметам
+        /// </summary>
+        /// <returns>Список сгруппированных данных</returns>
         public List<string> GetGroupedBySubjectInfo()
         {
             var result = new List<string>();
@@ -84,7 +116,12 @@ namespace Logic
 
             return result;
         }
-        // Поиск по стажу
+
+        /// <summary>
+        /// Находит преподавателей по минимальному стажу
+        /// </summary>
+        /// <param name="minExperience">Минимальный стаж</param>
+        /// <returns>Список подходящих преподавателей</returns>
         public List<string> GetTeachersByExperienceInfo(int minExperience)
         {
             var filteredTeachers = teachers.Where(t => t.Experience >= minExperience).ToList();
@@ -99,7 +136,10 @@ namespace Logic
                 .ToList();
         }
 
-        // Проверка существования преподавателей
+        /// <summary>
+        /// Проверяет наличие преподавателей в системе
+        /// </summary>
+        /// <returns>True если есть хотя бы один преподаватель</returns>
         public bool HasTeachers()
         {
             return teachers.Count > 0;
